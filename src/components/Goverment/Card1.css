@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,500;1,700&display=swap');
+
+
+
+
+.name{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+}
+.email{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+.Approved{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 500
+    
+}
+.account{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+   
+}
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.3s ease-in-out;
+    
+
+
+    
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+   
+}
+.right{
+    
+    display: flex;
+    justify-content: center;
+    background-color: rgb(204, 232, 237);
+   
+   border-top-left-radius: 160px;
+   border-bottom-left-radius: 160px;
+   border-bottom-right-radius: 160px;
+   border-top-right-radius: 160px;
+   padding: 10px 30px;
+
+}
+
+.image1{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.left-section{
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
+    width: 600px;
+    padding: 20px 50px;
+}
+.right-section {
+
+  
+   display: flex;
+   justify-content: c;
+   align-items: center;
+    
+    
+}
+
+
+/* .right-section button{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+
+  background-color: #2b85d9;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+} */
+
+.card:hover{
+    
+    transform: scale(1.1);
+
+}
+/* Your existing styles remain unchanged */
+
+/* Your existing styles remain unchanged */
+
+/* Hidden section style */
+.hidden-section {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .show-more-button {
+    background-color: #2b85d9;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    margin-top: 10px;
+    outline: none;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 100ms;
+  }
+  
+  .show-more-button:hover,
+  .show-more-button:focus {
+    background-color: #f082ac;
+  }
+  
+  /* Style to reveal hidden section */
+  .card.show-more .hidden-section {
+    display: block;
+  }
+  
+
