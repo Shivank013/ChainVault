@@ -9,14 +9,16 @@ import CryptoJS from 'crypto-js'
 import { BiSolidChevronsDown } from 'react-icons/bi'
 import { BiSolidChevronsUp } from 'react-icons/bi'
 import { IoMdDoneAll } from "react-icons/io";
+import cicon from"../../assets/certificate.png";
+import SkeletonLoader from '../Home/SkeletonLoader'
 
 function CertificateApplication() {
   const [data, setData] = useState([])
   const initialShowMoreState = data.map(() => false)
-  const [showMore, setShowMore] = useState(initialShowMoreState)
+  const [showMore, setShowMore] = useState(initialShowMoreState);
+  const [loading, setLoading] = useState();
 
   const toggleShowMore = (index) => {
-    // Toggle the state for the specific item
     const newShowMore = [...showMore]
     newShowMore[index] = !newShowMore[index]
     setShowMore(newShowMore)
@@ -24,8 +26,6 @@ function CertificateApplication() {
   const { 
     account, 
     result, 
-    dashboardLoading, 
-    setDashboardLoading,
     certificateData, 
     SetCertificateData,
     showSlider, 
@@ -38,15 +38,15 @@ function CertificateApplication() {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       console.log(result.id);
       const response = await getNonApprovedApplications(result.id);
       const sample = response.data.CertificateRequest;
       console.log(sample);
       setData(sample);
-      setDashboardLoading(false);
+      setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
-      setDashboardLoading(false);
     }
   };
 
@@ -110,7 +110,6 @@ function CertificateApplication() {
     handleAfterApprove(newCertificateData);
   } catch (error) {
     console.error(error);
-    setDashboardLoading(false);
   }
 };
 
@@ -149,26 +148,30 @@ function CertificateApplication() {
   return (
     <div className="    pt-16   flex flex-col">
       <SidebarInstitute />
+      
       {showSlider ? (
         <CertificateSlider />
       ) : (
         <div className=" pl-80 pt-7">
-          <h2>Applications for certificates</h2>
-          <div>
-            {dashboardLoading ? (
-              <div>loading..</div>
+          <h2 className='font-inter text-6xl m-2'>Applications for certificates...</h2>
+          <div className=' w-full'>
+            {loading ? (
+              <SkeletonLoader/>
             ) : (
-              <div>
+              <div className=' my-10 mx-4 w-full'>
                 {data.map((item, index) => (
                   <div
                     className="flex transition-transform transform transition-delay-500 hover:translate-x-6 flex-row m-4 items-center"
                     key={item._id}
                   >
-                    <img
+
+                    <img src={cicon} className=' h-16 mr-6 shadow-xl rounded-full' alt=''/>
+
+                    {/* <img
                       className="h-16 mr-6 shadow-xl rounded-full"
                       src={item.image}
                       alt={item.email}
-                    />
+                    /> */}
                     <div className=" shadow-inner bg-slate-200 text-richblack-900 font-medium w-[80%] rounded-full px-16 py-4">
                       <p>
                             <span className=" text-red-500 font-semibold">

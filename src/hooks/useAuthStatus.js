@@ -22,14 +22,15 @@ export function useAuthStatus() {
         if (cancelRequest) {
           return;
         }
-        const { authStatus, identifier, identifierEmail, id } = response.data;
+        const { authStatus, identifier, identifierEmail, id, ac } = response.data;
         if (authStatus === "success") {
           setResult({
             isLoading: false,
             isAuthorized: authStatus,
             username: identifier,
             email: identifierEmail,
-            id: id
+            id: id,
+            ac : ac
           });
         } else {
           setResult({

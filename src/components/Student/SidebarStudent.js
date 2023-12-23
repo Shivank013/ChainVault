@@ -8,14 +8,23 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { BiLockAlt } from 'react-icons/bi'
 import { PiSignInBold } from 'react-icons/pi'
 import '../Goverment/Slidebar.css'
+import Warning from '../Home/Warning'
 
 import { Link } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
 import { abi } from '../../Abi'
+import { warning } from 'framer-motion'
 const ethers = require('ethers')
 
 const SidebarStudent = () => {
-  const { account, setAccount, contractAddress, setContract, setProvider } =
+  const { account, 
+    setAccount, 
+    warning, 
+    setWarning, 
+    result, 
+    contractAddress, 
+    setContract, 
+    setProvider } =
     useContext(AppContext)
 
   useEffect(() => {
@@ -34,6 +43,15 @@ const SidebarStudent = () => {
         const signer = provider.getSigner()
         const address = await signer.getAddress()
         setAccount(address)
+        if(address === result.ac)
+        {
+          setWarning(false);
+        } else {
+          setWarning(true);
+        }
+        console.log(address);
+        console.log(result.ac)
+        console.log(warning);
         const contract = new ethers.Contract(contractAddress, abi, signer)
         setContract(contract)
         setProvider(provider)
@@ -46,6 +64,7 @@ const SidebarStudent = () => {
 
   return (
     <div className="body">
+     {warning && <Warning />}
       <div className="container">
         <div className="navigation">
           <ul>

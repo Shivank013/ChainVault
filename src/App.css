@@ -64,100 +64,64 @@ body {
     padding: 10px;
   }
   
- 
-  
-  /* Sidebar
-  .sidebar {
-    background: rgb(0, 7, 61);
-    color: white;
-    height: 100vh;
-    overflow-y: auto;
-  }
-  
-  .top_section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 10px;
-  }
-  .logo {
-    font-size: 18px;
-    line-height: 0;
-  }
-  .bars {
-    width: 30px;
-  }
-  .hide {
-    display: none;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    height: 30px;
-    padding: 10px;
-  }
-  .search input {
-    border: none;
-    margin-left: 10px;
-    border-radius: 5px;
-    background: rgb(238, 238, 238);
-  
-    color: white;
-  }
-  
-  .routes {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .link {
-    display: flex;
-    color: white;
-    gap: 10px;
-    padding: 5px 10px;
-    border-right: 4px solid transparent;
-    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  }
-  .link:hover {
-    border-right: 4px solid white;
-    background: rgb(45, 51, 89);
-    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  }
-  .active {
-    border-right: 4px solid white;
-    background: rgb(45, 51, 89);
-  }
-  .link_text {
-    white-space: nowrap;
-    font-size: 15px;
-  }
-  
-  .menu {
-    display: flex;
-    color: white;
-  
-    padding: 5px 10px;
-    border-right: 4px solid transparent;
-    transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    justify-content: space-between;
-  }
-  .menu_item {
-    display: flex;
-    gap: 10px;
-  }
-  .menu_container {
-    display: flex;
-    flex-direction: column;
-  }
-  .menu_container .link {
-    padding-left: 20px;
-    border-bottom: #fff 0.5px solid;
-  }
-   */
 
    .slick-slide> div{
     margin:  0 10px;;
    }
+
+
+   .App {
+    margin-top: 30px;
+    /* text-align: center; */
+  }
+  
+  .image_wrapper {
+    margin: 10px 30px;
+  }
+  
+  .image_wrapper img {
+    width: 100px;
+  }
+  
+  /* write your css here */
+@keyframes rotate {
+  /* 0% {
+    transform: rotate(0deg);
+  } */
+  50% {
+    transform: rotate(20deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.small-circle {
+  transform: translate(-50%, -50%) rotate(var(--angle));
+  animation: rotate 7s ease reverse infinite;
+}
+
+.big-circle {
+  transform: translate(-50%, -50%) rotate(var(--angle));
+  animation: rotate 7s infinite;
+}
+.picons01 {
+  border-left: 2px solid #ff8000;
+  padding-left: 15px;
+  margin-top: 15px;
+  text-align: left;
+  padding-bottom: 35px;
+}
+.col-sm-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.col-lg-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}

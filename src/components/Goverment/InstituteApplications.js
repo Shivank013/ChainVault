@@ -11,6 +11,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { AwesomeButton } from 'react-awesome-button'
 import { BiSolidChevronsDown } from 'react-icons/bi'
 import { BiSolidChevronsUp } from 'react-icons/bi'
+import SkeletonLoader from '../Home/SkeletonLoader'
 
 import './Loading.css'
 import './Card1.css'
@@ -34,6 +35,7 @@ function InsttituteApplications() {
 
   const { result, dashboardLoading, setDashboardLoading, approveInstitute } =
     useContext(AppContext)
+  const [loader , setLoader] = useState();  
 
   const toggleShowMore = (index) => {
     // Toggle the state for the specific item
@@ -44,14 +46,14 @@ function InsttituteApplications() {
 
   const fetchData = async () => {
     try {
+      setLoader(true);
       console.log(result.id)
       const response = await getNonRegisteredInst(result.id)
       console.log(response)
       setData(response.data)
-      setDashboardLoading(false)
+      setLoader(false);
     } catch (error) {
       console.error('Error fetching data:', error)
-      setDashboardLoading(false)
     }
   }
 
@@ -61,34 +63,30 @@ function InsttituteApplications() {
 
   const handleApprove = async (id, AccountNumber) => {
     try {
+      setLoader(true);
       console.log(id, AccountNumber)
-      setDashboardLoading(true)
       await approveInst(result.id, id)
       console.log('ac')
       console.log(AccountNumber)
       await approveInstitute(AccountNumber)
       fetchData() // Fetch data again after approval
       setSliderKey((prevKey) => prevKey + 1)
+      setLoader(false);
     } catch (error) {
       console.error('Error approving institute:', error)
-      setDashboardLoading(false)
     }
   }
 
   return (
     <div className="  pt-16   flex flex-col">
       <Slidebar />
-      <div className="   pl-56 pt-7  h-[100vh]  ">
+      <div className="   pl-80 pt-7 ">
         <div>
-          <div className="   w-3/4 m-auto ">
             <h2 className="font-inter text-6xl m-2">
               Not Registered Institute
             </h2>
-            {dashboardLoading ? (
-              <div className="   top-64" class="ring">
-                Loading
-                <span className="ringin"></span>
-              </div>
+            {loader ? (
+              <SkeletonLoader/>
             ) : (
               <div className="mt-20">
                 {data.map((item, index) => (
@@ -170,7 +168,6 @@ function InsttituteApplications() {
                 ))}
               </div>
             )}
-          </div>
         </div>
       </div>
     </div>

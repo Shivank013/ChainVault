@@ -28,17 +28,21 @@ exports.auth = async (req, res) =>{
 
             let identifier = "";
             let id="";
+            let ac="";
 
             if(goverment)
             {
               identifier = "goverment";
               id = goverment.id;
+              ac = goverment.AccountNumber;
             } else if (institute){
               identifier = "institute";
               id = institute.id;
+              ac = institute.AccountNumber;
             } else if(student){
               identifier = "student";
               id = student.id;
+              ac = student.AccountNumber;
             } else {
               res.json({
                 authStatus: "failure",
@@ -49,7 +53,8 @@ exports.auth = async (req, res) =>{
               authStatus: "success",
               identifier,
               identifierEmail,
-              id
+              id,
+              ac
             }); 
         } 
     }catch(error){

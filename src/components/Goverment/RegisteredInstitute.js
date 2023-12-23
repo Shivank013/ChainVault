@@ -4,22 +4,24 @@ import { getRegisteredInst } from '../../services/operations/GovermentOperations
 import Slidebar from './Slidebar'
 import { BiSolidChevronsDown } from 'react-icons/bi'
 import { BiSolidChevronsUp } from 'react-icons/bi'
+import SkeletonLoader from '../Home/SkeletonLoader'
 
 function RegisteredInstitute() {
-  const { result, dashboardLoading, setDashboardLoading } =
+  const { result, dashboardLoading} =
     useContext(AppContext)
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [loader, setLoader] = useState();
 
   const fetchData = async () => {
     try {
+      setLoader(true);
       console.log(result.id)
       const response = await getRegisteredInst(result.id)
       console.log(response)
       setData(response.data)
-      setDashboardLoading(false)
+      setLoader(false);
     } catch (error) {
       console.error('Error fetching data:', error)
-      setDashboardLoading(false)
     }
   }
 
@@ -45,8 +47,8 @@ function RegisteredInstitute() {
         <div>
           <h2 className="font-inter text-6xl m-2">Registered Institute...</h2>
           <div>
-            {dashboardLoading ? (
-              <div>loading..</div>
+            {loader ? (
+              <SkeletonLoader/>
             ) : (
               <div className=" mt-10 w-full">
                 {data.map((item, index) => (
