@@ -120,8 +120,11 @@ const Navbar = () => {
                   >
                     Home
                   </Link>
-                  <Link
-                    to="/"
+
+                  {
+                    result.isAuthorized ? (
+                      <Link
+                    to="/verification"
                     activeClass={"text-white bg-blue-500"}
                     spy={true}
                     smooth={true}
@@ -133,6 +136,9 @@ const Navbar = () => {
                   >
                     Verification
                   </Link>
+                    ) : (null) 
+                  }
+                 
                   
                   {
                     

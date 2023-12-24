@@ -185,9 +185,6 @@ const CertificateSlider = ()=> {
 
   const generate = async (ci) => {
     try {
-      const secretKey = 'secret';
-      const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(certificateData), secretKey).toString();
-      console.log(encryptedData);
   
       if (encryptedData !== "") {
         const response = await QRCode.toDataURL(encryptedData);

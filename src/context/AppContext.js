@@ -29,6 +29,7 @@ export default function AppContextProvider ({children}) {
     const [warning, setWarning] = useState(true);
     const [showshare, setShowshare] = useState(false);
     const [showLink, setShowLink] = useState(false);
+    const [scanResult, setScanResult] = useState(null);
     // const [qr, SetQr] = useState();
     // const [ipfsHash, SetIpfsHash] = useState("");
     const [encryptedData, SetEncryptedData] = useState("");
@@ -321,7 +322,8 @@ export default function AppContextProvider ({children}) {
       c2, setC2,
       warning, setWarning,
       showshare, setShowshare,
-      showLink, setShowLink
+      showLink, setShowLink,
+      scanResult, setScanResult
     }
 
     return <AppContext.Provider value={value}>

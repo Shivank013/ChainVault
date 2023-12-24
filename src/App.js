@@ -21,6 +21,8 @@ import CertificateApplication from './components/Institute/CertificateApplicatio
 import GovSignup from './components/Home/GovSignup'
 import InstSignup from './components/Home/InstSignup'
 import StudSignup from './components/Home/StudSignup'
+import Verificationfaild from './components/Verification/VerificationFaild'
+import VerifiedSuccessfully from './components/Verification/VerifiedSuccesfully'
 // import EnrolledStudents from './components/Institute/EnrolledStudents'
 import './App.css'
 import { ThemeProvider } from './themeProvider'
@@ -65,6 +67,9 @@ function App() {
           <Route path="/dashboard/institute" element={<InstDashboard />} />
           <Route path="/dashboard/student" element={<StudDashboard />} />
           <Route path="/verification" element={<Verification />} />
+          <Route path="/verification-failed" element={<Verificationfaild />} />
+          <Route path="/verification-successfull" element={<VerifiedSuccessfully />} />
+
           <Route
             path="/dashboard/goverment/goverment-profile"
             element={<GovProfile />}
