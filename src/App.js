@@ -21,17 +21,36 @@ import CertificateApplication from './components/Institute/CertificateApplicatio
 import GovSignup from './components/Home/GovSignup'
 import InstSignup from './components/Home/InstSignup'
 import StudSignup from './components/Home/StudSignup'
-import EnrolledStudents from './components/Institute/EnrolledStudents'
+// import EnrolledStudents from './components/Institute/EnrolledStudents'
 import './App.css'
 import { ThemeProvider } from './themeProvider'
+import Preloader from './components/Home/Preloader'
+import { useState, useEffect } from 'react'
 
 const dotenv = require('dotenv')
 
 dotenv.config()
 
 function App() {
+
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <div>
+    {showPreloader ? (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', width: '100vw' }}>
+        <Preloader />
+      </div>
+      ) : (
       <ThemeProvider>
         <Navbar />
 
@@ -58,10 +77,10 @@ function App() {
             path="/dashboard/goverment/registered-institutes"
             element={<RegisteredInstitute />}
           />
-          <Route
+          {/* <Route
             path="/dashboard/institute/enrolled-students"
             element={<EnrolledStudents />}
-          />
+          /> */}
           <Route
             path="/dashboard/institute/institute-profile"
             element={<InstituteProfile />}
@@ -95,7 +114,7 @@ function App() {
           <Route path="/signup/student" element={<StudSignup />} />
           <Route path="/" element={<Dashboard />} />
         </Routes>
-      </ThemeProvider>
+      </ThemeProvider>)}
     </div>
   )
 }

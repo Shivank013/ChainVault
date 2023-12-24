@@ -91,13 +91,13 @@ function CertificateApplication() {
 
     const newCertificateData = {
       instituteName: data.instituteName,
-      StartDate: data.StartDate,
-      EndDate: data.EndDate,
-      AppliedAt: data.AppliedAt,
+      StartDate: new Date(data.StartDate).toISOString().slice(2, 10),
+      EndDate: new Date(data.EndDate).toISOString().slice(2, 10),
+      AppliedAt: new Date(data.AppliedAt).toISOString().slice(2, 10),
       StudentName: data.StudentName,
       courseName: data.courseName,
       studentAccount: result.data.AccountNumber,
-      instituteAccount: account,
+      instituteAccount: account
     };
 
     setC1(data.InstituteId);
