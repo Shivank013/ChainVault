@@ -1,5 +1,5 @@
 import React, { useState, useEffect,useContext } from 'react'
-// import ReactConfetti from 'react-confetti'
+import ReactConfetti from 'react-confetti'
 import Lottie from 'lottie-react'
 import vsucess from '../../assets/verifysuccess.json'
 import { AppContext } from '../../context/AppContext'
@@ -39,7 +39,7 @@ const VerifiedSuccessfully = () => {
       <div className=" w-4/6 flex flex-row justify-center items-center mt-4 p-8 bg-white rounded-md shadow-md">
       <div className=' w-[100%] scale-125 ml-2 h-[18rem] overflow-hidden'>
       {
-        link?(<PdfViewer pdfUrl={link}/>):(<div>Loading...</div>)
+        link?(<PdfViewer pdfUrl={link}/>):(null)
       }
       </div>
       

@@ -1,17 +1,3 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom';
-
-// function Navbar() {
-//   return(
-//   <div className=' flex flex-row items-center gap-10  bg-red-700'>
-//   <div>Navbar</div>
-//   <Link to={"/login"}><button>Login</button></Link>
-//   <Link to={"/signup"}><button>Signup</button></Link>
-//   </div>
-//   );
-// }
-
-// export default Navbar
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../themeProvider";
@@ -19,20 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import Hamburger from "hamburger-react";
 import logo from "../../assets/Images/ChainVault-removebg-preview.png"
 import { AppContext } from "../../context/AppContext";
-import GovDashboard from "../Goverment/GovDashboard";
+// import GovDashboard from "../Goverment/GovDashboard";
 import Topicon from "../Goverment/components/Topicon";
-
-
 
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-
   Button,
   useDisclosure,
-  
 } from '@chakra-ui/react'
 
 
@@ -43,7 +25,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const darkMode = theme.state.darkMode;
   const {result}=useContext(AppContext);
-  const deep="land";
+  // const deep="land";
   
   const links = [
     {
@@ -138,10 +120,8 @@ const Navbar = () => {
                   </Link>
                     ) : (null) 
                   }
-                 
                   
                   {
-                    
                     result.username ? (<div><Topicon/>  </div>) :( <div>
                       <li className="cursor-pointer  flex flex-row gap-7">
                       <Link
@@ -173,8 +153,8 @@ const Navbar = () => {
                        smooth={true}
                        className={
                          darkMode
-                           ? "block py-2 px-3 text-black hover:bg-blue-500 hover:text-white rounded-md"
-                           : "block py-2 px-3 text-white hover:bg-blue-500 hover:text-black rounded-md"
+                           ? "block py-2 px-3 text-black hover:text-black rounded-md"
+                           : "block py-2 px-3 text-black hover:text-black rounded-md"
                        }>
                         <button onClick={onOpen}>Signup</button>
                       </Link>
@@ -201,15 +181,11 @@ const Navbar = () => {
                       </MenuItem>
                     </MenuList>
                   </Menu>
-
-
-
-                     
+  
                       </li>
                       
                       </div>)
                   }
-                 
                  
                 </li>
             
