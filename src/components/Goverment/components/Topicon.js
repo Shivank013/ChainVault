@@ -40,7 +40,7 @@ const Topicon = () => {
 
   return (
     <>
-      <Box>
+      <Box className=' z-50'>
         <div className="menu-container" ref={menuRef}>
           <div
             className="menu-trigger w-9 "
@@ -57,16 +57,10 @@ const Topicon = () => {
           <div
             className={`dropdown-menu ${open ? 'active  bord' : 'inactive'}`}
           >
-            <h3>
-              Deep sen
-              <br />
-              <span>SARKARI SLAVE</span>
-            </h3>
             <ul>
               <DropdownItem img={user} text={'Dashboard'} />
 
               <button onClick={bahar}>
-                {' '}
                 <DropdownItem img={logout} text={'Logout'} />
               </button>
             </ul>
