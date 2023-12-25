@@ -30,10 +30,13 @@ import {
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { BiMenuAltLeft } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 
 const InstDashboard = () => {
   const { result } = useContext(AppContext)
   console.log(result)
+  const navigate = useNavigate();
+
 
   const [open, setOpen] = useState(false)
   let menuRef = useRef()
@@ -47,6 +50,7 @@ const InstDashboard = () => {
     document.addEventListener('mousedown', handler)
     return () => {
       document.removeEventListener('mousedown', handler)
+      navigate('/dashboard/institute/institute-profile');
     }
   })
 
@@ -79,11 +83,7 @@ const InstDashboard = () => {
           <div
             className={`dropdown-menu ${open ? 'active  bord' : 'inactive'}`}
           >
-            <h3>
-              Deep sen
-              <br />
-              <span>SARKARI SLAVE</span>
-            </h3>
+            
             <ul>
               <DropdownItem img={user} text={'Dashboard'} />
 

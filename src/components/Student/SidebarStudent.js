@@ -69,13 +69,7 @@ const SidebarStudent = () => {
         <div className="navigation">
           <ul>
             <li>
-              <a href="#">
-                <span className="icon">
-                  <AiFillApple className="iccon" />
-                </span>
-                <span class="title">Brand Name</span>
-              </a>
-              <p>StudDashboard Acc: {account}</p>
+              {/* just a blank list item */}
             </li>
             <li>
               <Link to={'/dashboard/student/student-profile'}>

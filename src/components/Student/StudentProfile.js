@@ -41,7 +41,9 @@ function StudentProfile() {
   return (
     <div className="    pt-16   flex flex-col">
       <SidebarStudent />
-      <div className="      pl-80 pt-7">
+      {
+        data ? (
+          <div className="      pl-80 pt-7">
         <h2>My Profile</h2>
         <p>Name: {data.name}</p>
         <p>Acc Number: {data.AccountNumber}</p>
@@ -49,6 +51,8 @@ function StudentProfile() {
         <p>Phone: {data.tel}</p>
         <p>Date of Birth: {data.date}</p>
       </div>
+        ):(null)
+      }
     </div>
   )
 }

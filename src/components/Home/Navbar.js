@@ -17,8 +17,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 
-
-
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const theme = useContext(ThemeContext);

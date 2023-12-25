@@ -4,6 +4,7 @@ import { TbWorldSearch } from 'react-icons/tb'
 import { MdOutlinePrivacyTip } from 'react-icons/md'
 import { TiFolderOpen } from 'react-icons/ti'
 import { AppContext } from '../../context/AppContext'
+import StudentProfile from './StudentProfile'
 
 import user from '../../assets/Images/user.png'
 
@@ -29,10 +30,12 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { BiMenuAltLeft } from 'react-icons/bi'
 import SidebarStudent from './SidebarStudent'
+import { useNavigate } from 'react-router-dom'
 
 const StudDashboard = () => {
   const { result } = useContext(AppContext)
   console.log(result)
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false)
   let menuRef = useRef()
@@ -46,6 +49,7 @@ const StudDashboard = () => {
     document.addEventListener('mousedown', handler)
     return () => {
       document.removeEventListener('mousedown', handler)
+       navigate('/dashboard/student/student-profile');
     }
   })
 
@@ -57,7 +61,7 @@ const StudDashboard = () => {
           <SidebarStudent />
           <div className="      pl-80 pt-7">
             <div>
-              oekfpksappslapcflspdcpkskdlcldsllclcdsjfkdskjvdmvlmdlmvkfdomvmdfkvdf{' '}
+              
             </div>
           </div>
         </div>
@@ -71,7 +75,7 @@ const StudDashboard = () => {
           >
             <img
               className="bg-cover"
-              src={`https://api.dicebear.com/5.x/initials/svg?seed=${result.email}`}
+              src={`https://api.dicebear.com/5.x/initials/svg?seed=${result.name}`}
             ></img>
           </div>
 

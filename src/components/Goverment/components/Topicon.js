@@ -38,6 +38,20 @@ const Topicon = () => {
     navigate('/')
   }
 
+  function goto() {
+    if (result.username === 'goverment') {
+      navigate('/dashboard/goverment');
+      return null;
+  } else if (result.username === 'institute') {
+      navigate('/dashboard/institute');
+      return null;
+  } else {
+      navigate('/dashboard/student');
+      return null;
+  }
+    
+  }
+
   return (
     <>
       <Box className=' z-50'>
@@ -50,7 +64,7 @@ const Topicon = () => {
           >
             <img
               className="bg-cover"
-              src="https://cdn.iconscout.com/icon/free/png-512/free-user-avatar-contact-portfolio-personal-portrait-profile-5093.png?f=webp&w=256"
+              src={`https://api.dicebear.com/5.x/initials/svg?seed=${result.email}`}
             ></img>
           </div>
 
@@ -58,7 +72,9 @@ const Topicon = () => {
             className={`dropdown-menu ${open ? 'active  bord' : 'inactive'}`}
           >
             <ul>
-              <DropdownItem img={user} text={'Dashboard'} />
+            <button onClick={goto}>
+                <DropdownItem img={user} text={'Dashboard'} />
+            </button>
 
               <button onClick={bahar}>
                 <DropdownItem img={logout} text={'Logout'} />

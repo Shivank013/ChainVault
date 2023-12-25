@@ -67,13 +67,7 @@ const SidebarInstitute = () => {
         <div className="navigation">
           <ul>
             <li>
-              <a href="#">
-                <span className="icon">
-                  <AiFillApple className="iccon" />
-                </span>
-                <span class="title">Brand Name</span>
-              </a>
-              <p className="">InstDashboard acc:{account}</p>
+              {/* just a blank link */}
             </li>
             <li>
               <Link to={'/dashboard/institute/institute-profile'}>
