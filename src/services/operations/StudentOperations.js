@@ -85,6 +85,7 @@ export const getCerificates = async (id) => {
     return result;
 };
 
+
 export const getStudentData = async (id) => {
     const toastId = toast.loading("Loading...");
     const url =`${GET_STUDENT_DATA}?id=${id}`

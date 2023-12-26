@@ -73,7 +73,7 @@ function Application() {
   }, [])
 
   return (
-    <div className="    pt-16   flex flex-col">
+    <div className="   pt-16   flex flex-col">
       <SidebarStudent />
       <div className="      pl-80 pt-7">
       <h2 class="font-inter text-6xl m-2">Application Form...</h2>

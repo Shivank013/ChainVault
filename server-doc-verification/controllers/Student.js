@@ -200,8 +200,11 @@ exports.GetAllCertificates = async (req, res)=> {
   try{
 		const id = req.query.id;
     const student = await Student.findById(id)
-                      .populate("Applications")
-                      .exec();                     
+      .populate({
+        path: "Applications",
+        match: { status: "NotApproved" }, // Add this match condition
+      })
+      .exec();
     res.send({
         success: true,
         message: `Got All Applications`,

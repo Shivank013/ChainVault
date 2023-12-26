@@ -78,7 +78,7 @@ function InsttituteApplications() {
   }
 
   return (
-    <div className="  pt-16   flex flex-col">
+    <div className="  pt-16  flex flex-col">
       <Slidebar />
       <div className="   pl-80 pt-7 ">
         <div>

@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    backdropBlur: {
+      xs: '2px',
+    },
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],

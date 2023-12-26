@@ -39,7 +39,7 @@ function StudentProfile() {
   }, []);
 
   return (
-    <div className="    pt-16   flex flex-col">
+    <div className="   pt-16  flex flex-col">
       <SidebarStudent />
       {
         data ? (

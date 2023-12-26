@@ -41,7 +41,7 @@ function InstituteProfile() {
     }, []);
 
   return(
-    <div  className='    pt-16   flex flex-col'>
+    <div  className='  pt-16   flex flex-col'>
     <SidebarInstitute /> 
     <div className="      pl-80 pt-7">
         <h2>Institute Profile</h2>
