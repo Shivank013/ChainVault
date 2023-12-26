@@ -76,11 +76,14 @@ export const approveInst = async (id,instid) => {
             throw new Error(response.data.message)
         }
         result = response.data;
+    toast.dismiss(toastId);
+    toast.success("Approved!!")
     } catch (error) {
         console.log("Cannot approve institutes error ......", error);
         result = error.response.data;
+        toast.dismiss(toastId);
+        toast.error("Approval Failed")
     }
-    toast.dismiss(toastId);
     return result;
 };
 

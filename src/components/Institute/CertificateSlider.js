@@ -13,6 +13,7 @@ import PCertificate1 from "../../assets/2.png";
 import PCertificate2 from "../../assets/3.png";
 import PCertificate3 from "../../assets/4.png";
 import PCertificate4 from "../../assets/5.png";
+import toast from 'react-hot-toast';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 import QRCode from 'qrcode';
@@ -265,6 +266,7 @@ const CertificateSlider = ()=> {
           formData.append("file", pdfBlob, "certificate.pdf");
 
           console.log("uploading ..............")
+          const toastId = toast.loading("Uploading..")
   
           const resFile = await axios({
             method: "post",
@@ -278,6 +280,8 @@ const CertificateSlider = ()=> {
           });
   
           const ipfsHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
+
+          toast.dismiss(toastId)
 
           console.log(ipfsHash);
           if(ipfsHash){
@@ -302,10 +306,9 @@ const CertificateSlider = ()=> {
           }
           
           setCall(true);
-          
-          alert("Successfully Certificate Uploaded");
+          toast.success("Uploaded Successfully")
           } else {
-            alert("Some problem occured");
+          toast.error("Cannot Upload")  
           }
         } catch (e) {
           console.log("file hi nahi aa pai: " +e);

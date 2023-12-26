@@ -13,6 +13,7 @@ function Application() {
     handleSubmit,
     formState: { errors },
     register,
+    reset,
   } = useForm() // Use 'register' method
 
   const [data, setData] = useState([])
@@ -52,6 +53,7 @@ function Application() {
     } catch (error) {
       console.log(error)
     }
+    reset();
   }
 
   const fetchData = async () => {

@@ -59,10 +59,9 @@ function MyCertificates() {
     result, 
     account,
     getStudentInfo,
-    dashboardLoading, 
-    setDashboardLoading,
     getIpfsHash,
     showshare, 
+    dashboardLoading,
     setShowshare,
     showLink,
     setShowLink } =useContext(AppContext);
@@ -90,7 +89,6 @@ function MyCertificates() {
       const response2 = await getStudentInfo(account);
       console.log(response2[2]);
       setApprovedCertificates(response2[2]);
-      setDashboardLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error)
     }
@@ -110,10 +108,8 @@ function MyCertificates() {
       console.log("Decrypted Array:", decryptedArray);
 
       setDecryptedDataArray(decryptedArray);
-      setDashboardLoading(false);
     } catch (error) {
       console.error('Error decrypting data:', error);
-      setDashboardLoading(false);
     }
   }
 
@@ -179,7 +175,7 @@ function MyCertificates() {
           <h2 class="font-inter text-6xl mb-12 m-2">My Certificates...</h2>
           <div>
             {dashboardLoading ? (
-              <div>loading..</div>
+              <div>Loading...</div>
             ) : (
               <div>
 

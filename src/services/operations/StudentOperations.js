@@ -58,9 +58,11 @@ export const cerificateApplication = async (id,data) => {
             throw new Error(response.data.message)
         }
         result = response.data;
+        toast.success("Applied Successfuly")
     } catch (error) {
         console.log("Cannot apply for certifiacte error ......", error);
         result = error.response.data;
+        toast.error("Failed")
     }
     toast.dismiss(toastId);
     return result;
