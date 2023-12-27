@@ -95,7 +95,6 @@ exports.approveInstitute = async (req, res) => {
             institute.Approved = "Approved";
             await institute.save();
 
-            // send mail 
             try {
               const mailResponse = await mailSender(
                 institute.email,

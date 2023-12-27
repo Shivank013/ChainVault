@@ -81,12 +81,12 @@
   display: flex;
   justify-content: center;
   padding-top: 10px;
-
 }
 
-.navigation ul li a .icon .iccon{
+.navigation ul li a .icon .iccon {
   font-size: 1.75em;
 }
+
 .navigation ul li a .title{
   position: relative;
   display: block;

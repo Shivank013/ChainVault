@@ -1,18 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
-import {
-  getNonRegisteredInst,
-  approveInst,
-} from '../../services/operations/GovermentOperations'
+import {getNonRegisteredInst,approveInst} from '../../services/operations/GovermentOperations'
 import Slidebar from './Slidebar'
-import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { AwesomeButton } from 'react-awesome-button'
 import { BiSolidChevronsDown } from 'react-icons/bi'
 import { BiSolidChevronsUp } from 'react-icons/bi'
 import SkeletonLoader from '../Home/SkeletonLoader'
-
 import './Loading.css'
 import './Card1.css'
 
@@ -28,12 +22,10 @@ function InsttituteApplications() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
     arrows: true,
   }
 
-  const { result, dashboardLoading, setDashboardLoading, approveInstitute } =
+  const { result,approveInstitute } =
     useContext(AppContext)
   const [loader , setLoader] = useState();  
 
@@ -82,13 +74,13 @@ function InsttituteApplications() {
       <Slidebar />
       <div className="   pl-80 pt-7 ">
         <div>
-            <h2 className="font-inter text-6xl m-2">
-              Not Registered Institute
+            <h2 className="font-inter font-semibold text-6xl m-2">
+              Applications for Registration...
             </h2>
             {loader ? (
               <SkeletonLoader/>
             ) : (
-              <div className="mt-20">
+              <div className="mt-10 my-10 mx-3 w-full">
                 {data.map((item, index) => (
                   <div
                     className="flex transition-transform transform transition-delay-500 hover:translate-x-6 flex-row m-4 items-center"
@@ -99,7 +91,7 @@ function InsttituteApplications() {
                       src={item.image}
                       alt={item.email}
                     />
-                    <div className=" shadow-inner bg-slate-200 text-richblack-900 font-medium w-[80%] rounded-full px-16 py-4">
+                    <div className=" shadow-xl bg-slate-200 mb-2 text-richblack-900 font-medium w-[80%] rounded-full px-16 py-4">
                       <p>
                         <span className=" text-red-500 font-semibold">
                           Name:{' '}
@@ -175,34 +167,3 @@ function InsttituteApplications() {
 }
 
 export default InsttituteApplications
-
-{
-  /* <div
-key={item._id}
-className="robin bg-white h-[459px] text-black  rounded-xl"
->
-<div className=" h-56 rounded-t-xl   bg-indigo-500 flex justify-center items-center">
-  <img
-    src={item.image}
-    alt={item.email}
-    className="h-44 w-44  rounded-full"
-  ></img>
-</div>
-
-<div className="flex flex-col justify-center items-center gap-4 p-4">
-  <p className=" text-xl  font-semibold">{item.email}</p>
-  <p>{item.Approved}</p>
-  <p className=" text-[17px]">{item.AccountNumber}</p>
-  {item.Approved === 'NotApproved' && (
-    <AwesomeButton
-      className="  bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl"
-      onPress={() =>
-        handleApprove(item._id, item.AccountNumber)
-      }
-    >
-      Approve
-    </AwesomeButton>
-  )}
-</div>
-</div> */
-}

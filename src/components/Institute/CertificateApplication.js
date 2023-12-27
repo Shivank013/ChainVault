@@ -29,12 +29,15 @@ function CertificateApplication() {
     certificateData, 
     SetCertificateData,
     showSlider, 
-    SetShowSlider,
-    encryptedData, 
+    SetShowSlider, 
     SetEncryptedData,
-    call, setCall,c1, setC1,c2, setC2} = useContext(AppContext);
+    call, 
+    setCall,
+    c1, 
+    setC1,
+    c2, 
+    setC2} = useContext(AppContext);
 
-  // const [data, setData] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -153,7 +156,7 @@ function CertificateApplication() {
         <CertificateSlider />
       ) : (
         <div className=" pl-80 pt-7">
-          <h2 className='font-inter text-6xl m-2'>Applications for certificates...</h2>
+          <h2 className='font-inter font-semibold text-6xl m-2'>Applications for certificates...</h2>
           <div className=' w-full'>
             {loading ? (
               <SkeletonLoader/>
@@ -167,12 +170,7 @@ function CertificateApplication() {
 
                     <img src={cicon} className=' h-16 mr-6 shadow-xl rounded-full' alt=''/>
 
-                    {/* <img
-                      className="h-16 mr-6 shadow-xl rounded-full"
-                      src={item.image}
-                      alt={item.email}
-                    /> */}
-                    <div className=" shadow-inner bg-slate-200 text-richblack-900 font-medium w-[80%] rounded-full px-16 py-4">
+                    <div className=" shadow-xl bg-slate-200 text-richblack-900 mb-2 font-medium w-[80%] rounded-full px-16 py-4">
                       <p>
                             <span className=" text-red-500 font-semibold">
                                 courseName:{' '}

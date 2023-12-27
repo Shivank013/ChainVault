@@ -5,11 +5,23 @@ import { PiWarningOctagonBold } from "react-icons/pi";
 import { MdAccountCircle } from "react-icons/md";
 import { AppContext } from '../../context/AppContext'
 import { IoMdReturnRight } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Warning = () => {
 
-  const {result} = useContext(AppContext);
+  const {result,setResult} = useContext(AppContext);
+  const navigate = useNavigate();
+
+  function bahar() {
+    setResult({
+      isLoading: true,
+      isAuthorized: false,
+      username: '',
+      email: '',
+      id: '',
+    })
+    navigate('/')
+  }
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-20">
@@ -31,14 +43,10 @@ const Warning = () => {
           <MdAccountCircle className=" text-yellow-50 text-2xl" />
           <h2 className=" text-xl ml-2 font-semibold">{result.ac}</h2>
           </div>
-
-          <Link to="/login">
-            <button className="mt-4 text-red-500 hover:text-red-700 font-semibold flex items-center">
+            <button onClick={bahar} className="mt-4 text-red-500 hover:text-red-700 font-semibold flex items-center">
               Login again
               <IoMdReturnRight className="text-white ml-2" />
             </button>
-          </Link>
-
         </div>
 
       </div>

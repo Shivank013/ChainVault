@@ -6,10 +6,9 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineAttachEmail } from "react-icons/md";
-import emailjs from 'emailjs-com';
 
 const Share = () => {
-  const { showLink, setShowshare } = useContext(AppContext);
+  const { showLink, setShowshare,result } = useContext(AppContext);
   const [isCopied, setIsCopied] = useState(false);
 
   const close = async () => {
@@ -41,7 +40,7 @@ const Share = () => {
   };
 
   const shareOnGmail = () => {
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=chainvaultpro@gmail.com.com&su=My%20Certificate&body=Certificate%20Link%0D${encodeURIComponent(showLink)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${result.email}&su=My%20Certificate&body=Certificate%20Link%0D${encodeURIComponent(showLink)}`;
     window.open(gmailUrl, '_blank');
   };
 

@@ -1,7 +1,6 @@
 const Institute = require("../models/Institute");
 const Student = require("../models/Student");
 const Application = require("../models/Application");
-const { uploadImageToCloudinary } = require("../utils/imageUploader");
 const mailSender = require("../utils/mailSender");
 const emailTemplate = require("../Templates/ApprovalTemplate");
 
@@ -55,35 +54,6 @@ exports.signup = async (req, res) => {
             success: false,
             message: "Institute cannot be registered. Please try again.",
           });
-    }
-};
-
-exports.updateDisplayPicture = async (req, res) => {
-    try {
-      const displayPicture = req.files.displayPicture
-      const InstituteId = req.query.id
-      const image = await uploadImageToCloudinary(
-        displayPicture,
-        process.env.FOLDER_NAME,
-        1000,
-        1000
-      )
-      console.log(image)
-      const updatedProfile = await Institute.findByIdAndUpdate(
-        { _id: InstituteId },
-        { image: image.secure_url },
-        { new: true }
-      )
-      res.send({
-        success: true,
-        message: `Image Updated successfully`,
-        data: updatedProfile,
-      })
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        message: error.message,
-      })
     }
 };
 
@@ -142,8 +112,6 @@ exports.approveCertificate = async (req, res)=> {
       if (application) {
         application.status = "Approved";
         await application.save();
-
-        ////////////////////
 
         console.log("got the id");
         console.log(application.StudentId);

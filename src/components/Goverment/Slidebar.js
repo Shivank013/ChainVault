@@ -1,23 +1,16 @@
 import React, { useEffect,useContext } from 'react'
-import {AiFillApple} from 'react-icons/ai';
 import {AiOutlineHome} from 'react-icons/ai';
-import {FiUsers} from 'react-icons/fi';
-import {BsChat} from 'react-icons/bs';
-import {BsQuestionLg} from 'react-icons/bs';
-import {AiOutlineSetting} from 'react-icons/ai';
-import {BiLockAlt} from 'react-icons/bi';
-import {PiSignInBold} from 'react-icons/pi';
 import './Slidebar.css';
-
+import { MdOutlineApproval } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import {abi} from "../../Abi";
 import Warning from '../Home/Warning';
+import { RiRegisteredLine } from "react-icons/ri";
 const ethers = require("ethers");
 
 const Slidebar = () => {
     const {
-        account,
         setAccount,
         contractAddress,
         setContract,
@@ -75,13 +68,13 @@ const Slidebar = () => {
                     </li>
                     <li>
                        <Link to={"/dashboard/goverment/institute-applications"}>
-                        <span className='icon'><FiUsers className='iccon'/></span>
+                        <span className='icon'><MdOutlineApproval className='iccon'/></span>
                         <span class="title">Institute Applications</span>
                         </Link> 
                     </li>
                     <li>
                        <Link  to={"/dashboard/goverment/registered-institutes"}>
-                        <span className='icon'><BsChat className='iccon'/></span>
+                        <span className='icon'><RiRegisteredLine className='iccon'/></span>
                         <span class="title">Registered Institute</span>
                         </Link> 
                     </li>

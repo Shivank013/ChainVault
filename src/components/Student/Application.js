@@ -78,9 +78,9 @@ function Application() {
     <div className="   pt-16   flex flex-col">
       <SidebarStudent />
       <div className="      pl-80 pt-7">
-      <h2 class="font-inter text-6xl m-2">Application Form...</h2>
-        <div class="flex flex-col w-full items-center dark">
-          <div class="bg-gray-800 w-[50%] mt-20 rounded-lg shadow-md p-6">
+      <h2 class="font-inter font-semibold text-6xl m-2">Application Form...</h2>
+        <div class="flex flex-col pb-20 w-full items-center dark">
+          <div class="bg-gray-800 w-[40%] shadow-2xl mt-20 rounded-lg p-6">
 
             <form onSubmit={handleSubmit(onSubmit)} class="flex flex-col">
               <div className=" w-full">
@@ -145,7 +145,7 @@ function Application() {
                     ))}
                   </select>
                 ) : (
-                  <div class="bg-gray-700 h-10 w-[100%] text-gray-200 border-0 w-[100%] rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150">
+                  <div class="bg-gray-700 h-10 w-[100%] text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150">
                     No courses available
                   </div>
                 )}

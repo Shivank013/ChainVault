@@ -3,68 +3,72 @@ const Student = require("../models/Student");
 const Institute = require("../models/Institute");
 const Goverment = require("../models/Goverment");
 
-exports.auth = async (req, res) =>{
-    try{
-        const passage = new Passage({
-            appID: process.env.PASSAGE_APP_ID,
-            apiKey: process.env.PASSAGE_API_KEY,
-            authStrategy: "HEADER",
-          });
-        const userID = await passage.authenticateRequest(req);
-        if (userID) {
-          // user is authenticated
-            const { email, phone } = await passage.user.get(userID);
-            const identifierEmail = email ? email : phone;
+exports.auth = async (req, res) => {
+  try {
+    const passage = new Passage({
+      appID: process.env.PASSAGE_APP_ID,
+      apiKey: process.env.PASSAGE_API_KEY,
+      authStrategy: "HEADER",
+    });
+    const userID = await passage.authenticateRequest(req);
+    if (userID) {
+      // user is authenticated
+      const { email, phone } = await passage.user.get(userID);
+      const identifierEmail = email ? email : phone;
 
-            if(!identifierEmail){
-              res.send({
-                authStatus: "failure",
-              });
-            }
+      if (!identifierEmail) {
+        return res.json({
+          authStatus: "failure",
+        });
+      }
 
-            const goverment = await Goverment.findOne({ email:identifierEmail });
-            const institute = await Institute.findOne({ email:identifierEmail });
-            const student = await Student.findOne({ email:identifierEmail });
+      const goverment = await Goverment.findOne({ email: identifierEmail });
+      const institute = await Institute.findOne({ email: identifierEmail });
+      const student = await Student.findOne({ email: identifierEmail });
 
-            let identifier = "";
-            let id="";
-            let ac="";
+      let identifier = "";
+      let id = "";
+      let ac = "";
+      let status = "";
 
-            if(goverment)
-            {
-              identifier = "goverment";
-              id = goverment.id;
-              ac = goverment.AccountNumber;
-            } else if (institute){
-              identifier = "institute";
-              id = institute.id;
-              ac = institute.AccountNumber;
-            } else if(student){
-              identifier = "student";
-              id = student.id;
-              ac = student.AccountNumber;
-            } else {
-              res.json({
-                authStatus: "failure",
-              });
-            }
+      if (goverment) {
+        identifier = "goverment";
+        id = goverment.id;
+        ac = goverment.AccountNumber;
+        status = goverment.Approved;
+      } else if (institute) {
+        identifier = "institute";
+        id = institute.id;
+        ac = institute.AccountNumber;
+        status = institute.Approved;
+      } else if (student) {
+        identifier = "student";
+        id = student.id;
+        ac = student.AccountNumber;
+        status = student.Approved;
+      } else {
+        return res.json({
+          authStatus: "failure",
+        });
+      }
 
-            res.send({
-              authStatus: "success",
-              identifier,
-              identifierEmail,
-              id,
-              ac
-            }); 
-        } 
-    }catch(error){
-            // authentication failed
-            console.log(error);
-            res.send({
-            authStatus: "failure",
-            });
+      return res.json({
+        authStatus: "success",
+        identifier,
+        identifierEmail,
+        id,
+        ac,
+        status
+      });
     }
-}
+  } catch (error) {
+    // authentication failed
+    console.log(error);
+    return res.json({
+      authStatus: "failure",
+    });
+  }
+};
 
 exports.isStudent = async (req, res, next) => {
   try{

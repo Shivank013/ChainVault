@@ -23,7 +23,6 @@ import InstSignup from './components/Home/InstSignup'
 import StudSignup from './components/Home/StudSignup'
 import Verificationfaild from './components/Verification/VerificationFaild'
 import VerifiedSuccessfully from './components/Verification/VerifiedSuccesfully'
-// import EnrolledStudents from './components/Institute/EnrolledStudents'
 import './App.css'
 import { ThemeProvider } from './themeProvider'
 import Preloader from './components/Home/Preloader'
@@ -82,10 +81,6 @@ function App() {
             path="/dashboard/goverment/registered-institutes"
             element={<RegisteredInstitute />}
           />
-          {/* <Route
-            path="/dashboard/institute/enrolled-students"
-            element={<EnrolledStudents />}
-          /> */}
           <Route
             path="/dashboard/institute/institute-profile"
             element={<InstituteProfile />}

@@ -4,7 +4,6 @@ import { studentEndpoints } from "../apis";
 
 const {
     POST_CREATE_STUDENT_API,
-    PUT_DISPLAY_PICTURE_STUDENT_API,
     POST_CERTIFICATE_APPLICATION_API,
     GET_CERTIFICATES_API,
     GET_STUDENT_DATA
@@ -20,30 +19,13 @@ export const createStudent = async (values) => {
             throw new Error(response.data.message)
         }
         result = response.data;
+        toast.dismiss(toastId);
     } catch (error) {
         console.log("Cannot create student error ......", error);
         result = error.response.data;
+        toast.dismiss(toastId);
+        toast.error("Open your Metamask")
     }
-    toast.dismiss(toastId);
-    return result;
-};
-
-export const dpStudent = async (id) => {
-    const toastId = toast.loading("Loading...");
-    const url =`${PUT_DISPLAY_PICTURE_STUDENT_API}?id=${id}`
-    let result = null;
-    try {
-        const response = await apiConnector("PUT", url);
-        console.log("DP of student .....", response);
-        if (!response?.data?.success) {
-            throw new Error(response.data.message)
-        }
-        result = response.data;
-    } catch (error) {
-        console.log("Cannot chage Dp of student error ......", error);
-        result = error.response.data;
-    }
-    toast.dismiss(toastId);
     return result;
 };
 

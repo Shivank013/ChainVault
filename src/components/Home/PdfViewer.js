@@ -5,7 +5,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css'; // Import the default CSS 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 const PdfViewer = ({ pdfUrl }) => {
-  const [numPages, setNumPages] = useState(null);
+  const [setNumPages] = useState(null);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);

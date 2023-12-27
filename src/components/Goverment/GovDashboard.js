@@ -1,41 +1,17 @@
-import { BsKey } from 'react-icons/bs'
-import { AiOutlineFileSearch } from 'react-icons/ai'
-import { TbWorldSearch } from 'react-icons/tb'
-import { MdOutlinePrivacyTip } from 'react-icons/md'
-import { TiFolderOpen } from 'react-icons/ti'
 import { AppContext } from '../../context/AppContext'
-
+import { useNavigate } from 'react-router-dom'
 import user from '../../assets/Images/user.png'
-
 import logout from '../../assets/Images/sent.svg'
 import './gov.css'
-
 import Slidebar from './Slidebar'
-
-import {
-  Drawer,
-  DrawerBody,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Button,
-  useDisclosure,
-  VStack,
-  HStack,
-  Image,
-  Box,
-  Flex,
-} from '@chakra-ui/react'
+import {useDisclosure,Box,} from '@chakra-ui/react'
 import React, { useState, useEffect, useRef, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { BiMenuAltLeft } from 'react-icons/bi'
 import GovHome from './components/govhome/GovHome'
 
 const GovDashboard = () => {
-  const { result } = useContext(AppContext)
+  const { result,setResult } = useContext(AppContext)
   console.log(result)
-
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   let menuRef = useRef()
   useEffect(() => {
@@ -51,13 +27,37 @@ const GovDashboard = () => {
     }
   })
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  function bahar() {
+    setResult({
+      isLoading: true,
+      isAuthorized: false,
+      username: '',
+      email: '',
+      id: '',
+    })
+    navigate('/')
+  }
+
+  function goto() {
+    if (result.username === 'goverment') {
+      navigate('/dashboard/goverment');
+      return null;
+  } else if (result.username === 'institute') {
+      navigate('/dashboard/institute');
+      return null;
+  } else {
+      navigate('/dashboard/student');
+      return null;
+  }
+    
+  }
+
   return (
     <>
       <Box>
         <div className="    pt-16   flex flex-col">
           <Slidebar />
-          <div className="  pl-80 pt-7">
+          <div className="  overflow-y-hidden pl-80 pt-7">
             <div>
               <GovHome />
             </div>
@@ -80,15 +80,10 @@ const GovDashboard = () => {
           <div
             className={`dropdown-menu ${open ? 'active  bord' : 'inactive'}`}
           >
-            <h3>
-              Deep sen
-              <br />
-              <span>SARKARI SLAVE</span>
-            </h3>
             <ul>
-              <DropdownItem img={user} text={'Dashboard'} />
+              <DropdownItem onClick={bahar} img={user} text={'Dashboard'} />
 
-              <DropdownItem img={logout} text={'Logout'} />
+              <DropdownItem onClick={goto} img={logout} text={'Logout'} />
             </ul>
           </div>
         </div>

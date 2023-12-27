@@ -1,31 +1,23 @@
 import React, { useEffect, useContext } from 'react'
-import { AiFillApple } from 'react-icons/ai'
 import { AiOutlineHome } from 'react-icons/ai'
-import { FiUsers } from 'react-icons/fi'
-import { BsChat } from 'react-icons/bs'
-import { BsQuestionLg } from 'react-icons/bs'
-import { AiOutlineSetting } from 'react-icons/ai'
-import { BiLockAlt } from 'react-icons/bi'
-import { PiSignInBold } from 'react-icons/pi'
+import { IoAddOutline } from "react-icons/io5";
+import { VscRequestChanges } from "react-icons/vsc";
+import { LiaCertificateSolid } from "react-icons/lia";
 import '../Goverment/Slidebar.css'
 import Warning from '../Home/Warning'
-
 import { Link } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
 import { abi } from '../../Abi'
-import { warning } from 'framer-motion'
 const ethers = require('ethers')
 
 const SidebarInstitute = () => {
-  const { account, 
-    result, 
+  const {result, 
     warning, 
     setWarning, 
     setAccount, 
     contractAddress, 
     setContract, 
-    setProvider } =
-    useContext(AppContext)
+    setProvider } = useContext(AppContext)
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -80,15 +72,15 @@ const SidebarInstitute = () => {
             <li>
               <Link to={'/dashboard/institute/add-courses'}>
                 <span className="icon">
-                  <FiUsers className="iccon" />
+                  <IoAddOutline className="iccon" />
                 </span>
-                <span class="title">AddCourses</span>
+                <span class="title">Add Courses</span>
               </Link>
             </li>
             <li>
               <Link to={'/dashboard/institute/certificate-application'}>
                 <span className="icon">
-                  <BsChat className="iccon" />
+                  <VscRequestChanges className="iccon" />
                 </span>
                 <span class="title">Certificate Applications</span>
               </Link>
@@ -96,7 +88,7 @@ const SidebarInstitute = () => {
             <li>
               <Link to={'/dashboard/institute/given-certificates'}>
                 <span className="icon">
-                  <BsChat className="iccon" />
+                  <LiaCertificateSolid className="iccon" />
                 </span>
                 <span class="title">Given Certificates</span>
               </Link>

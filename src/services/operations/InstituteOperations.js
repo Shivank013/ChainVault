@@ -4,7 +4,6 @@ import { instituteEndpoints } from "../apis";
 
 const {
     POST_CREATE_INSTITUTE_API,
-    PUT_DISPLAY_PICTURE_INSTITUTE_API,
     GET_NON_APPROVED_APPLICATIONS,
     GET_APPROVED_APPLICATIONS,
     PUT_APPROVE_CERTIFICATE,
@@ -22,11 +21,13 @@ export const RegisteredInst = async () => {
             throw new Error(response.data.message)
         }
         result = response.data;
+        toast.dismiss(toastId);
     } catch (error) {
         console.log("Cannot get all registered institutes error ......", error);
         result = error.response.data;
-    }
     toast.dismiss(toastId);
+    toast.error("Open your Metamask")
+    }
     return result;
 };
 
@@ -42,25 +43,6 @@ export const createInstitute = async (values) => {
         result = response.data;
     } catch (error) {
         console.log("Cannot create institutes error ......", error);
-        result = error.response.data;
-    }
-    toast.dismiss(toastId);
-    return result;
-};
-
-export const dpInstitute = async (id) => {
-    const toastId = toast.loading("Loading...");
-    const url =`${PUT_DISPLAY_PICTURE_INSTITUTE_API}?id=${id}`
-    let result = null;
-    try {
-        const response = await apiConnector("PUT", url);
-        console.log("DP of institute .....", response);
-        if (!response?.data?.success) {
-            throw new Error(response.data.message)
-        }
-        result = response.data;
-    } catch (error) {
-        console.log("Cannot chage Dp of institutes error ......", error);
         result = error.response.data;
     }
     toast.dismiss(toastId);

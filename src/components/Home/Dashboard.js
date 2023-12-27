@@ -1,9 +1,10 @@
-// import { useAuthStatus } from "../../../hooks/useAuthStatus";
 import { useAuthStatus } from "../../hooks/useAuthStatus";
 import { useNavigate } from "react-router-dom";
+import NotRegWarning from "./NotRegWarning";
+import Noprofilewarning from "./Noprofilewarning";
 
 function Dashboard() {
-    const {isLoading, isAuthorized, username, email, id} = useAuthStatus();
+    const {isLoading, isAuthorized, username, status} = useAuthStatus();
     const navigate = useNavigate();
 
     if (isLoading) {
@@ -11,7 +12,13 @@ function Dashboard() {
     }
 
     if (!isAuthorized) {
-        return <div>You are not registered</div>;
+        console.log("Not Registered")
+        return <div><Noprofilewarning/></div>;
+    }
+
+    if (status == "NotApproved") {
+        console.log("Not Registered")
+        return <div><NotRegWarning/></div>;
     }
 
     if (username === 'goverment') {

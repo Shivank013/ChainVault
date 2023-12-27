@@ -7,7 +7,7 @@ import { BiSolidChevronsUp } from 'react-icons/bi'
 import SkeletonLoader from '../Home/SkeletonLoader'
 
 function RegisteredInstitute() {
-  const { result, dashboardLoading} =
+  const { result} =
     useContext(AppContext)
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState();
@@ -45,12 +45,12 @@ function RegisteredInstitute() {
       <Slidebar />
       <div className="pl-80 pt-7">
         <div>
-          <h2 className="font-inter text-6xl m-2">Registered Institute...</h2>
+          <h2 className="font-inter font-semibold text-6xl m-2">Registered Institute...</h2>
           <div>
             {loader ? (
               <SkeletonLoader/>
             ) : (
-              <div className=" mt-10 w-full">
+              <div className=" mt-10 mx-1 my-10 w-full">
                 {data.map((item, index) => (
                   <div
                     className="flex transition-transform transform transition-delay-500 hover:translate-x-6 flex-row m-4 items-center"
@@ -61,7 +61,7 @@ function RegisteredInstitute() {
                       src={item.image}
                       alt={item.email}
                     />
-                    <div className=" shadow-inner bg-slate-200 text-richblack-900 font-medium w-[80%] rounded-full px-16 py-4">
+                    <div className=" shadow-xl bg-slate-200 text-richblack-900 mb-2 font-medium w-[80%] rounded-full px-16 py-4">
                       <p>
                         <span className=" text-red-500 font-semibold">
                           Name:{' '}

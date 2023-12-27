@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import first from "../../assets/carousel1.png"
@@ -15,9 +15,7 @@ import PCertificate3 from "../../assets/4.png";
 import PCertificate4 from "../../assets/5.png";
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import CryptoJS from 'crypto-js';
 import QRCode from 'qrcode';
-import { approveCertificate } from '../../services/operations/InstituteOperations';
 
 const CertificateSlider = ()=> {
 
@@ -26,8 +24,7 @@ const CertificateSlider = ()=> {
     certificateData,
     createCertificate,
     encryptedData,
-    SetQr,setCall,c1,c2
-  } = useContext(AppContext);  
+    setCall} = useContext(AppContext);  
 
   const goBack = () => {
     SetShowSlider(false);
@@ -189,7 +186,6 @@ const CertificateSlider = ()=> {
   
       if (encryptedData !== "") {
         const response = await QRCode.toDataURL(encryptedData);
-        // SetQr(response);
   
         // Call the appropriate generateAndUploadPDF function based on the current index
         switch (ci) {
@@ -319,11 +315,11 @@ const CertificateSlider = ()=> {
     };
 
   return (
-    <div className=' rounded-2xl border-2 scale-75 h-[700px] w-[900px] m-auto pb-28 relative group'>
-    <div className=' flex rounded-2xl flex-row-reverse h-10 w-full'> <button className=' rounded-tr-2xl h-full ml-4 px-6 bg-red-600 text-white text center ' onClick={goBack}>X</button> </div>
+    <div className=' rounded-2xl border-2 bg-slate-200 shadow-2xl border-gray-700 scale-75 h-[700px] w-[900px] ml-96 pb-28 -mt-8 relative group'>
+    <div className=' flex rounded-2xl flex-row-reverse h-10 w-full'> <button className=' rounded-tr-xl h-full ml-4 px-6 bg-red-600 text-white text center ' onClick={goBack}>X</button> </div>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full px-4 h-full rounded-2xl bg-center duration-500'
+        className='w-full px-4 h-full border-t-2 border-b-2 border-richblack-900 bg-center bg-cover duration-500'
       ></div>
       {/* Left Arrow */}
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
@@ -344,7 +340,7 @@ const CertificateSlider = ()=> {
           </div>
         ))}
       </div>
-              <button className='mt-7 rounded-md text-l font-semibold bg-[#ef5b5b] text-white border-2 p-2' onClick={() => generate(currentIndex)}>Create Certificate</button>
+              <button className='mt-7 rounded-md text-xl font-semibold bg-[#ef5b5b] text-white border-2 py-2 px-4' onClick={() => generate(currentIndex)}>Create Certificate</button>
     </div>
   );
 }

@@ -21,7 +21,7 @@ const GovHome = () => {
   }
 
   return (
-    <div className="h-[110vh] mt-20">
+    <div className=" h-full mb-10 mt-20">
       <h1 className="     font-sans   text-lg    text-blue-800  ml-4     font-bold">
         Number of Service provided
       </h1>

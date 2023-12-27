@@ -98,7 +98,7 @@ function GivenCertificates() {
     <div className="pt-16 flex flex-col">
       <SidebarInstitute />
       <div className="pl-80 pt-7">
-        <h2 className="font-inter text-6xl m-2">Given Certificates To... </h2>
+        <h2 className="font-inter font-semibold text-6xl m-2">Given Certificates To... </h2>
 
         <form className=' mt-16 '>
           <div className=' flex items-center'>
@@ -194,20 +194,6 @@ function GivenCertificates() {
               </div>
             )}
           </div>
-
-        {/* <div>
-          {studentInfo.map((info, index) => (
-            <div key={index}>
-              <p>{info.name}</p>
-              <p>{info.AccountNumber}</p>
-              <p>{info.email}</p>
-              <p>{info.tel}</p>
-              <p>{info.date}</p>
-            </div>
-          ))}
-        </div> */}
-
-
       </div>
     </div>
   );

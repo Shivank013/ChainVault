@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Hamburger from "hamburger-react";
 import logo from "../../assets/Images/ChainVault-removebg-preview.png"
 import { AppContext } from "../../context/AppContext";
-// import GovDashboard from "../Goverment/GovDashboard";
 import Topicon from "../Goverment/components/Topicon";
 
 import {
@@ -23,7 +22,6 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const darkMode = theme.state.darkMode;
   const {result}=useContext(AppContext);
-  // const deep="land";
   
   const links = [
     {
@@ -232,7 +230,6 @@ const Navbar = () => {
             />
           </div>
         </div>
-        {/* Mobile view nav bar */}
       </nav>
       <AnimatePresence>
         {toggle && (

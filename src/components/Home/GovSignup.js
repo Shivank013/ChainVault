@@ -1,32 +1,14 @@
 import React from 'react'
 import { createGoverment } from '../../services/operations/GovermentOperations'
 import { useForm } from 'react-hook-form'
-import { useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import circle from '../../assets/Images/Desktop - 2 (3).svg'
 import { AwesomeButton } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import '../../App.css'
 import { FcKey } from 'react-icons/fc'
 import { AiOutlineMail } from 'react-icons/ai'
 import { MdPlace } from 'react-icons/md'
-import { AppContext } from '../../context/AppContext'
 
 function GovSignup() {
-  const { result, setResult } = useContext(AppContext)
-
-  // const navigate = useNavigate()
-
-  // function handleclick() {
-  //   setResult({
-  //     isLoading: true,
-  //     isAuthorized: false,
-  //     username: 'DEEP',
-  //     email: '',
-  //     id: '',
-  //   })
-  //   navigate('/dashboard/goverment')
-  // }
 
   const {
     handleSubmit,
@@ -69,7 +51,6 @@ function GovSignup() {
     console.log(data)
     const response = await createGoverment(data)
     console.log(response)
-    // window.location.href = '/';
   }
 
   return (
@@ -79,7 +60,6 @@ function GovSignup() {
         backgroundImage: `url('https://i.ibb.co/Js9701v/Desktop-2-2.png')`,
       }}
     >
-      {/* <img class="   h-full w-full object-cover" src={circle} alt="Your Image" /> */}
 
       <form
         onSubmit={handleSubmit(onSubmit)}

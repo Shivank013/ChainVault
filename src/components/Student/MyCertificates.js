@@ -169,10 +169,10 @@ function MyCertificates() {
   return (
     <div className="  overflow-y-hidden overflow-x-hidden pb-10 pt-16   flex flex-col">
       <SidebarStudent />
-      <div className="  pl-80 pt-7">
+      <div className="  pl-72 pt-7">
       {showshare && <Share/>}
         <div>
-          <h2 class="font-inter text-6xl mb-12 m-2">My Certificates...</h2>
+          <h2 class=" font-semibold font-inter ml-10 text-6xl mb-12 m-2">My Certificates...</h2>
           <div>
             {dashboardLoading ? (
               <div>Loading...</div>
@@ -180,7 +180,7 @@ function MyCertificates() {
               <div>
 
               <div className='deep'>
-              <h1 class=" mt-4 text-5xl text-center font-extrabold text-slate-500">Approved <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Certificates</span></h1>
+              <h1 class=" mt-4 p-6 bg-slate-100 text-5xl text-center font-extrabold text-slate-500">Approved <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Certificates</span></h1>
 
                <Slider ref={arrowsRef} {...settings} className=' overflow-y-hidden h-96'>
                {decryptedDataArray.map((certificate, index) => (
@@ -269,7 +269,7 @@ function MyCertificates() {
                 </div>
 
               <div className='deep'>
-                 <h1 class=" mt-4 text-5xl text-center font-extrabold text-slate-500">Certificates for <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Approval</span></h1>
+                 <h1 class=" mt-4 p-6 bg-slate-100 text-5xl text-center font-extrabold text-slate-500">Certificates for <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Approval</span></h1>
                 <Slider ref={notApprovedArrowsRef} {...settings} className=' overflow-y-hidden h-96'>
                 
                 {data.map((item) => (

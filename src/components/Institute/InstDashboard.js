@@ -1,35 +1,10 @@
-import { BsKey } from 'react-icons/bs'
-import { AiOutlineFileSearch } from 'react-icons/ai'
-import { TbWorldSearch } from 'react-icons/tb'
-import { MdOutlinePrivacyTip } from 'react-icons/md'
-import { TiFolderOpen } from 'react-icons/ti'
 import { AppContext } from '../../context/AppContext'
-
 import user from '../../assets/Images/user.png'
-
 import logout from '../../assets/Images/sent.svg'
 import '../Goverment/gov.css'
-
 import SidebarInstitute from './SidebarInstitude'
-
-import {
-  Drawer,
-  DrawerBody,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  Button,
-  useDisclosure,
-  VStack,
-  HStack,
-  Image,
-  Box,
-  Flex,
-} from '@chakra-ui/react'
+import {Box} from '@chakra-ui/react'
 import React, { useState, useEffect, useRef, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { BiMenuAltLeft } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
 
 const InstDashboard = () => {
@@ -54,7 +29,6 @@ const InstDashboard = () => {
     }
   })
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Box>

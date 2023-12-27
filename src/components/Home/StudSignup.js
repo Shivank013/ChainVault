@@ -4,23 +4,16 @@ import { createStudent } from '../../services/operations/StudentOperations'
 import { AppContext } from '../../context/AppContext'
 import CryptoJS from 'crypto-js'
 import { abi } from '../../Abi'
-import { FcKey } from 'react-icons/fc'
 import { AiOutlineMail } from 'react-icons/ai'
-import { MdPlace } from 'react-icons/md'
 import { FcContacts } from 'react-icons/fc'
 import { BiSolidInstitution } from 'react-icons/bi'
 import { AwesomeButton } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import '../../App.css'
-import { useNavigate } from 'react-router-dom'
 
 const { ethers } = require('ethers')
 
 function StudSignup() {
-  const navigate = useNavigate()
-  // function handleclick() {
-  //   navigate('/dashboard/student')
-  // }
 
   const {
     handleSubmit,

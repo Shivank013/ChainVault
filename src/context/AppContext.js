@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { abi } from "../Abi";
 import toast from "react-hot-toast";
 const {ethers} = require("ethers");
 
@@ -179,7 +178,12 @@ export default function AppContextProvider ({children}) {
         const data = await contract.verification(_transactionHash);
         console.log(data);
         toast.dismiss(toastId);
-        toast.success("Verified")
+        if(data)
+        {
+          toast.success("Certificate Verified")
+        } else {
+        toast.error("Fake Certificate")
+        }
         return data;
       } catch(error)
       {

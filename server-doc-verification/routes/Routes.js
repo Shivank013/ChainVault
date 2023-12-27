@@ -12,7 +12,6 @@ const {
 // institute
 const {
     signup,
-    updateDisplayPicture,
     GetAllNotApprovedApplications,
     GetAllApprovedApplications,
     approveCertificate,
@@ -22,7 +21,6 @@ const {
 // student
 const {
     signupStudent,
-    updateDisplayPictureStudent,
     CertificateApplication,
     GetAllCertificates,
     getStudentInfo
@@ -46,7 +44,6 @@ router.put("/approve-institute",isGoverment,approveInstitute)
 
 // insitute routes
 router.post("/institute-signup",signup)
-router.put("/updateDisplayPicture-institute",isInstitute,updateDisplayPicture)
 router.get("/get-student-application",isInstitute,GetAllNotApprovedApplications)
 router.get("/get-approved-student",isInstitute,GetAllApprovedApplications)
 router.put("/approve-certificate",isInstitute,approveCertificate)
@@ -54,7 +51,6 @@ router.get("/institutes",RegisteredInstitute);
 
 // stuident routes
 router.post("/student-signup",signupStudent)
-router.put("/updateDisplayPicture-student",isStudent,updateDisplayPictureStudent)
 router.post("/certificate-application",isStudent,CertificateApplication)
 router.get("/get-all-certificate",isStudent,GetAllCertificates)
 router.get("/get-student-data",isStudent,getStudentInfo)

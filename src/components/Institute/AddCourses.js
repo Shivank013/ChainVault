@@ -3,11 +3,10 @@ import TagsInput from "react-tagsinput";
 import "react-tagsinput/react-tagsinput.css"; 
 import { AppContext } from "../../context/AppContext";
 import SidebarInstitute from "./SidebarInstitude";
-import { MdOutlineAddBox } from "react-icons/md";
 
 function AddCourses() {
   const [courseNames, setCourseNames] = useState([]);
-  const { addCourses, account, getCourses, result, dashboardLoading, setDashboardLoading } = useContext(AppContext);
+  const { addCourses, account, getCourses, setDashboardLoading } = useContext(AppContext);
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
@@ -35,7 +34,7 @@ function AddCourses() {
   };
 
   const tagsArray = data.map((str, index) => (
-    <div className="w-fit py-2 px-4 m-4 rounded-lg font-semibold bg-red-500 text-white border-1 border-black" key={index}>
+    <div className=" flex py-2 px-4 m-4 rounded-lg font-semibold bg-orange-500 border-2 border-richblack-900 text-white" key={index}>
       <span>{str}</span>
     </div>
   ));
@@ -43,25 +42,24 @@ function AddCourses() {
   return (
     <div className="pt-16 flex flex-col">
       <SidebarInstitute />
-      <div className="pl-80 pt-7">
+      <div className="pl-72 pt-7">
         <div>
-          <h2 className="font-inter text-6xl m-2">Your Courses... </h2>
-          <div className="flex mt-10 overflow-y-scroll rounded-xl bg-slate-50 ml-4 w-3/4 border-2 border-slate-300">{tagsArray}</div>
+          <h2 className="font-inter font-semibold ml-10 text-6xl m-2">Your Courses... </h2>
+          <div className="flex ml-10 mt-10 flex-wrap rounded-xl bg-gray-500 mr-6 border-2 border-slate-300">{tagsArray}</div>
         </div>
-        <div>
-          <h3 className="font-robo text-richblack-900 font-bold text-3xl text-start mt-10 ml-4 ">Add Courses</h3>
+        <div className=" mt-20">
+          <h2 class=" mt-4 p-6 bg-slate-100 text-5xl text-center font-extrabold text-slate-500">Add <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Cources</span></h2>
           <TagsInput
-            className=" w-2/5 scroll-ml-4 px-4 py-2 border-slate-300 ml-4 rounded-md border-2 justify-center items-center"
+            className=" w-2/5 scroll-ml-4 px-2 mt-16 pt-2 pb-1 border-slate-700 ml-10 rounded-md border-2 justify-center items-center"
             value={courseNames}
             onChange={(tags) => setCourseNames(tags)}
             onlyUnique={true}
             addOnBlur={true}
-            inputProps={{ placeholder: "Add course names" }}
+            inputProps={{ placeholder: "Add course" }}
           />
           {courseNames.length !== 0 ? (
-            <button className=' bg-red-500 text-xl px-4 py-1 ml-4 text-white mt-4 rounded-xl gap-1 font-bold flex flex-row justify-center items-center' onClick={add}>
+            <button className=' bg-red-500 ml-10 text-xl px-4 py-1 text-white mt-4 rounded-xl gap-1 font-bold flex flex-row justify-center items-center' onClick={add}>
               Add Courses
-              {<MdOutlineAddBox className=" text-2xl"/>}
             </button>
           ) : null}
         </div>

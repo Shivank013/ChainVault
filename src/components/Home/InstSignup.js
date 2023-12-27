@@ -4,25 +4,16 @@ import { createInstitute } from '../../services/operations/InstituteOperations'
 import CryptoJS from 'crypto-js'
 import { useForm } from 'react-hook-form'
 import { abi } from '../../Abi'
-import circle from '../../assets/Images/Desktop - 2 (3).svg'
 import { AwesomeButton } from 'react-awesome-button'
 import 'react-awesome-button/dist/styles.css'
 import '../../App.css'
-import { FcKey } from 'react-icons/fc'
 import { AiOutlineMail } from 'react-icons/ai'
-import { MdPlace } from 'react-icons/md'
 import { FcContacts } from 'react-icons/fc'
 import { BiSolidInstitution } from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom'
 
 const { ethers } = require('ethers')
 function InstSignup() {
-  // const navigate =useNavigate();
-
-  // function handleclick(){
-  // 	navigate("/dashboard/institute")
-  // }
-
+ 
   const {
     handleSubmit,
     formState: { errors },
@@ -86,7 +77,6 @@ function InstSignup() {
         backgroundImage: `url('https://i.ibb.co/Js9701v/Desktop-2-2.png')`,
       }}
     >
-      {/* <img class="   h-full w-full object-cover" src={circle} alt="Your Image" /> */}
 
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -110,7 +100,6 @@ function InstSignup() {
             >
               <BiSolidInstitution />
             </svg>
-            {/* <img className='  w-4  mr-4' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/768px-MetaMask_Fox.svg.png' alt='sf'></img> */}
 
             <input
               placeholder="Institute Name"
