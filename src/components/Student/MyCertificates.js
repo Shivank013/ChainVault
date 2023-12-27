@@ -186,7 +186,7 @@ function MyCertificates() {
                {decryptedDataArray.map((certificate, index) => (
                         <div
                           key={index}
-                          class="certificate-item relative  group duration-500 cursor-pointer group overflow-hidden  text-gray-50 h-72 w-60   m-0  rounded-2xl hover:duration-700 "
+                          class="certificate-item relative  group duration-500 cursor-pointer group overflow-hidden  text-gray-50 h-72 w-60 mb-20  m-0  rounded-2xl hover:duration-700 "
                         >
                           <div class="w-60 h-72 mb-32 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-gray-800">
                             <div class="flex flex-row justify-between">

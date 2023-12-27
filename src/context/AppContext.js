@@ -22,7 +22,7 @@ export default function AppContextProvider ({children}) {
     const [account, setAccount] = useState("");
     const [contract, setContract] = useState(null);
     const [provider, setProvider] = useState(null);
-    const [contractAddress, setContractAddress] = useState("0xcB1a4916d8d1F96Ca601BB838CF2611Bcb54852d");
+    const [contractAddress, setContractAddress] = useState("0x52373c67816378C9a46470E241A41f64C9De25B8");
     const [certificateData, SetCertificateData] = useState({});
     const [showSlider, SetShowSlider] = useState(false);
     const [index,setIndex] = useState(0);
