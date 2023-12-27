@@ -1,4 +1,4 @@
-  const API_URL = "https://chainvault.onrender.com";
+  const BASE_URL = "https://chainvault.onrender.com";
 
 export const govermentEndpoints = {
     POST_CREATE_GOV_API: BASE_URL + "/goverment-signup",
