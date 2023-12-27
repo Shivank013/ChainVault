@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL
+  const API_URL = "https://chainvault.onrender.com";
 
 export const govermentEndpoints = {
     POST_CREATE_GOV_API: BASE_URL + "/goverment-signup",

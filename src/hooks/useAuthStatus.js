@@ -4,8 +4,7 @@ import axios from "axios";
 
 export function useAuthStatus() {
 
-  const API_URL = process.env.REACT_APP_BASE_URL;
-  console.log("ye h url: ", API_URL)
+  console.log("ye h url https://chainvault.onrender.com")
   
   const {result, setResult} = useContext(AppContext);
 
@@ -14,7 +13,7 @@ export function useAuthStatus() {
     const authToken = localStorage.getItem("psg_auth_token");
     // console.log(authToken);
     axios
-      .post(`${API_URL}/auth`, null, {
+      .post(`https://chainvault.onrender.com/auth`, null, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
