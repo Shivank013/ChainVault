@@ -166,7 +166,7 @@ function Application() {
 
               <div className="w-full">
                 <input
-                  placeholder="end date"
+                  placeholder="End date"
                   class="bg-gray-700 text-gray-200 border-0 w-[100%] rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
                   type="date"
                   {...register('EndDate', { required: 'End Date is required' })}
