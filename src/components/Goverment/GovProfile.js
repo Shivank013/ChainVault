@@ -5,8 +5,8 @@ import GovHome from './components/govhome/GovHome'
 function GovProfile() {
   return (
     <div className="  overflow-y-hidden   pt-16   flex flex-col">
-      <Slidebar />
-      <div className="     pl-[305px]     pr-2">
+      <Slidebar  />
+      <div className=" pl-[18.7rem]">
         <GovHome />
       </div>
     </div>

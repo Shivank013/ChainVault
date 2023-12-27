@@ -52,7 +52,7 @@ const Slidebar = () => {
             provider && loadProvider();
           }, []);
   return (
-    <div className='body'>
+    <div className='body z-30'>
      {warning && <Warning />}
          <div className="container">
              <div className="navigation">
