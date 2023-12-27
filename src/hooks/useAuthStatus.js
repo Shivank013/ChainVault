@@ -2,9 +2,10 @@ import { useEffect, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/v1";
-
 export function useAuthStatus() {
+
+  const API_URL = process.env.REACT_APP_BASE_URL;
+  console.log("ye h url: ", API_URL)
   
   const {result, setResult} = useContext(AppContext);
 

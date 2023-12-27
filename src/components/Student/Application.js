@@ -153,6 +153,7 @@ function Application() {
               </div>
 
               <div className=" w-full">
+              <label className="text-gray-200">Start Date</label>
                 <input
                   placeholder="Start date"
                   class="bg-gray-700 text-gray-200 border-0 w-[100%] rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
@@ -165,6 +166,7 @@ function Application() {
               </div>
 
               <div className="w-full">
+              <label className="text-gray-200">End Date</label>
                 <input
                   placeholder="End date"
                   class="bg-gray-700 text-gray-200 border-0 w-[100%] rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
